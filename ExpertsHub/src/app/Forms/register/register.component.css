@@ -1,0 +1,106 @@
+/*Loader CSS*/
+content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    height:100%;
+  }
+  .loader-wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #242f3f;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .loader {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    border: 4px solid #Fff;
+    animation: loader 8s infinite ease;
+  }
+  .loader-inner {
+    vertical-align: top;
+    display: inline-block;
+    width: 100%;
+    background-color: #fff;
+    animation: loader-inner 5s infinite ease-in;
+  }
+  @keyframes loader {
+    0% { transform: rotate(0deg);}
+    25% { transform: rotate(180deg);}
+    50% { transform: rotate(180deg);}
+    75% { transform: rotate(360deg);}
+    100% { transform: rotate(360deg);}
+  }
+  @keyframes loader-inner {
+    0% { height: 0%;}
+    25% { height: 0%;}
+    50% { height: 100%;}
+    75% { height: 100%;}
+    100% { height: 0%;}
+  }
+
+
+/* Actual CSS*/
+body{
+    background-image: linear-gradient(to right,#00bbcc,#5577ff);
+    padding: 1.5rem;
+}
+.formBox{
+    padding: 3rem;
+    background-image: linear-gradient(to left, #f8f8f8,#ffffff);
+    border-radius: 1.5rem;
+    /* border-bottom-left-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+    background-image: url('../../../assets/signup-bg.jpg'); */
+    
+}
+.imageBox{
+    padding: 4rem;
+    border-top-left-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
+
+}
+.title{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 30px;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 800;
+}
+.btn-color{
+    background:#ff9800;
+    background-image: linear-gradient(to right,#00aaff,#5577ff);
+    
+    border-radius: 1.5rem;
+}
+.btn-color:hover{
+    background-image: linear-gradient(to left,#00afff,#5577fa);
+}
+.color{
+    color:#a5a8ac
+}
+/* .bg-image{
+    background-image: url('../../../assets/bg-01.jpg');
+    opacity: 0.6;
+} */
+.text-white{
+    color: rgba(255, 255, 255, 1)
+}
+/* .backBox{
+    background-image: url('../../../assets/signup-bg.jpg');
+   
+} */
+
+input
+{
+    box-shadow:  5px 5px 5px #888888;
+}
