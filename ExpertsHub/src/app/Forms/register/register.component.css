@@ -82,9 +82,9 @@ body{
     
     border-radius: 1.5rem;
 }
-.btn-color:hover{
+/* .btn-color:hover{
     background-image: linear-gradient(to left,#00afff,#5577fa);
-}
+} */
 .color{
     color:#a5a8ac
 }

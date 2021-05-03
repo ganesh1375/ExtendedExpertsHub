@@ -2,8 +2,8 @@
     <div class="container p-4  position" style=" max-width:800px;max-height:auto; ">
         <div class="row border p-4 bg-light shadow"
             style="box-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF; border-radius: 20px;">
-            <div class="col-md-6 p-4 col-12 order-md-1  order-2 ">
-                <form [formGroup]="loginForm" (ngSubmit)="signIn()">
+            <div class="col-md-6  col-xs-6 p-4 col-12 order-md-1  order-2 ">
+                <form [formGroup]="loginForm" (ngSubmit)="signIn(loginForm)">
                     <div class="form-group w-100 ">
                         <label for="userEmail">Email address </label>
                         <input type="email" [class.is-invalid]="email.invalid && email.touched"
@@ -21,10 +21,13 @@
 
                     <div class="form-group w-100">
                         <label for="userPassword">Password</label>
-                        <input type="password" [class.is-invalid]="password.invalid && password.touched" class="form-control shadow" formControlName="password" id="userPassword"
+                        <input type="password" [class.is-invalid]="password.invalid && password.touched"
+                            class="form-control shadow" formControlName="password" id="userPassword"
                             placeholder="Password">
+                        <small *ngIf="invalidPassword" class="text-danger">Invalid Password</small>
+                        
                         <div *ngIf="password.invalid && password.touched">
-                            <small *ngIf="password.errors.required" class="text-danger pt-1">password
+                            <small *ngIf="password.errors.required" class="text-danger pt-1">Password
                                 Required</small>
                         </div>
                     </div>
@@ -33,19 +36,19 @@
                         <a class="ml-md-2 ml-1 mt-md-0 mt-0" routerLink="/fogot-password">Forgot Password? </a>
                     </div>
                     <button type="submit" class="btn btn-primary col-12" [disabled]="loginForm.invalid">Login</button>
-
-                    <br><br><br>
+                    <br>
                     <div class="text-center">
-                        <p>You don't have an account? 
-                        <a routerLink="/register" class="ml-md-2 ml-1 mt-md-0 mt-0">Register here</a></p>
+                        <p>You don't have an account?
+                            <a routerLink="/register" class="ml-md-2 ml-1 mt-md-0 mt-0">Register here</a>
+                        </p>
                     </div>
 
                 </form>
             </div>
 
-            <div class=" shadow col-md-6  col-12 order-md-2 order-1 backup d-flex align-items-start"
+            <div class=" shadow col-md-6 col-xs-6 col-12 order-md-2 order-1 backup d-flex align-items-end"
                 style="border-radius: 25px;">
-                <p class="text-light font-weight-bolder" style="font-family: 'Courier New', Courier, monospace;font-size: 30px;">Hello <br> Welcome Back</p>
+                <p class="text-light font-weight-bolder" style="font-size: 30px;">Hello <br> Welcome <br> Back</p>
             </div>
         </div>
     </div>

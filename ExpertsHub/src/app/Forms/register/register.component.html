@@ -8,7 +8,7 @@
             <div class="col-md-2">
             </div>
             <div class="col-md-8 col-12 offset=md-1">
-                <form [formGroup]="registerForm" class="formBox" (ngSubmit)="onSubmit()">
+                <form [formGroup]="registerForm" class="formBox" novalidate [class.d-none]="submitted || existEmail" (ngSubmit)="onSubmit()">
                     <h1 class="title mb-5 text-center form-check-label text-info    ">Register Now!</h1>
                     <div class="form-group">
                         <label class="form-label">First name</label>
@@ -69,7 +69,7 @@
                     </div>
                     <br>
                     <div class="align-items-center form-group">
-                        <button type="submit" class="btn btn-color text-white form-submit col-md-12">Register</button>
+                        <button type="submit" [disabled]="firstname.invalid" class="btn btn-color text-white form-submit col-md-12">Register</button>
                     </div>
                 </form>
 
@@ -78,5 +78,23 @@
             </div>
         </div>
     </div>
+    <div class="container" *ngIf="submitted">
+        <div class="row">
+            <div class="col-12">
+                <h4 class="text-dark">Form Succesfully Submitted Thank You!!!! <br>Please Login <br></h4>
+                <button routerLink="login" class="btn btn-success ml-4">Login</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" *ngIf="existEmail" >
+        <div class="row">
+            <div class="col-12">
+                <h4 class="text-dark">This Mail is already Exist <br>Please Login <br> </h4>
+                <button routerLink="login" class="btn btn-success ml-4 mt-4">Login</button>
+            </div>
+        </div>
+    </div>
+
     <router-outlet></router-outlet>
 </body>

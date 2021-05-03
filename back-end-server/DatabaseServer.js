@@ -4,26 +4,30 @@ var cors = require('cors');
 var bodyParser = require('body-parser');
 const routes = require('./routes/userRouter');
 
-
-const url = "mongodb+srv://Nag-test:Test@mongodb.ga6r7.mongodb.net/Employee?retryWrites=true&w=majority";
-
-mongoose.connect(url,{useNewUrlParser: true, useUnifiedTopology: true} //
-    ).then(response =>{
-        console.log('Mongo connected...   --',response.now().getHours()+":"+response.now().getMinutes()+":"+response.now().getSeconds());
-    }).catch(err =>{
-        console.log(err.message);
-
-    });
-
 const app = express();
-
-
 app.use(bodyParser.json());
 app.use(cors());
-app.use('/api',routes);
+app.use(express.json());
+
+const MONG_URL = `mongodb+srv://nobody:change76@firstdemoproject.nzko4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+const conncetion = mongoose.connect(MONG_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true
+}, (err) => {
+    if (err) {
+        console.log("unable to connect");
+    }
+    else {
+        console.log("Connection Successfull");
+    }
+});
+
+app.use('/api', routes);
 
 
-var server = app.listen(5500,()=>{
+var server = app.listen(5500, () => {
 
     var port = server.address().port;
     console.log(`"server is running ${port}"`);
